@@ -1,0 +1,45 @@
+
+.progress{
+    align-items: center;
+    text-align: center;
+    margin: 7% 0% 4% 0%;
+    font-size: 30px;
+    /* padding-top: 52px; */
+  
+
+}
+.progress h5{
+    font-size: 40px;
+}
+/* .confirm button{
+    margin-top: 1%;
+    font-size: 30px;
+    border: none;
+    background: #bba28d;
+    border-radius: 10px;
+    padding: 10px 30px 10px 30px;
+} */
+.progress p{
+    padding: 0px 25px 0px 0px;
+    
+}
+.progress s1{
+    padding-top:100px;
+    justify-content: end;
+}
+.con spam{
+    margin: 0px 25px 0px 25px;
+    padding: 0px 100px 0px 100px;
+    
+
+
+}
+.con{
+    margin-bottom: 85px;
+}
+.liness{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+

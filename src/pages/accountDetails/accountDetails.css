@@ -1,0 +1,85 @@
+.wrap h2{
+    margin-top:25px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profileChange {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:10px 0px;
+    background: rgb(198, 198, 198);
+    border-top: solid black 1px;
+    border-bottom: solid black 1px;
+    margin-bottom: 25px;
+}
+.profileChange button {
+    /* margin-top: 20px; */
+    /* margin-left: 40px; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    padding: 16px 0px;
+    background: #bba28d;
+    border-radius: 10px;
+    width: 244px;
+  
+    /* font-weight: 400; */
+    /* font-size: 20px; */
+  
+    /* text-Black */
+  
+    color: rgba(0, 0, 0, 0.9);
+    border: none;
+  }
+  .CurrentAdres {
+    /* margin:10px 5% 10% 10%; */
+    padding-right: 250px;
+    margin-left: 10px;
+  }
+  .phne{
+    /* margin:10px 5% 10% 10%; */
+    padding-right: 256px;
+    margin-left: 10px;
+  }
+  .cnic{
+    /* margin:10px 5% 10% 10%; */
+    padding-right: 325px;
+    margin-left: 10px;
+  }
+  .mail{
+    /* margin:10px 5% 10% 10%; */
+    padding-right: 325px ;
+    margin-left: 10px;
+  }
+  .confrm{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:10px 0px;
+    background: rgb(198, 198, 198);
+    border-top: solid black 1px;
+    border-bottom: solid black 1px;
+    margin-bottom: 1%;
+}
+  .confrm button {
+    /* margin-top: 20px; */
+    /* margin-left: 40px; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    padding: 16px 0px;
+    background: #bba28d;
+    border-radius: 10px;
+    width: 244px;
+  
+    /* font-weight: 400; */
+    /* font-size: 20px; */
+  
+    /* text-Black */
+  
+    color: rgba(0, 0, 0, 0.9);
+    border: none;
+  }

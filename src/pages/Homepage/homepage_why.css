@@ -1,0 +1,25 @@
+.Why-con{
+    font-weight: 200;
+    font-size: 36px;
+
+box-sizing: border-box;
+
+/* Auto layout */
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 256px 89px;
+gap: 64px;
+
+/* position: absolute; */
+/* width: 1440px; */
+height: 804px;
+left: 0px;
+top: 1039px;
+
+/* bottom */
+
+border-bottom: 2.5px solid #000000;
+}

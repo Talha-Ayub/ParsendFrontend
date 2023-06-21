@@ -1,0 +1,21 @@
+
+.accept{
+    align-items: center;
+    text-align: center;
+    margin: 13% 0% 8% 0%;
+    font-size: 30px;
+    /* padding-top: 52px; */
+  
+
+}
+.accept h5{
+    font-size: 40px;
+}
+.accept button{
+    margin-top: 1%;
+    font-size: 30px;
+    border: none;
+    background: #bba28d;
+    border-radius: 10px;
+    padding: 10px 30px 10px 30px;
+}

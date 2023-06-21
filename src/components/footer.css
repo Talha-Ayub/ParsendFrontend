@@ -1,0 +1,54 @@
+.main{
+  margin-top: 5px;
+    display: flex;
+    
+}
+/* .cdhr{
+    rotate: left;
+} */
+.copyright{
+    margin-left: 5%;
+}
+
+.cd{
+    border-left:3px;
+    margin-left: 40%;
+}
+/* footer h1{
+    font-size: large;
+} */
+.aa {
+    text-decoration-line: none;
+    color: black;
+    padding-right: 100px;
+  }
+  .aa:hover {
+    padding-left: 10px;
+    color: #BBA28D;
+    text-decoration-line: none;
+    transition: all 0.15s;
+  }  
+  .fb{
+    background-color: blue;
+    height: 30px;
+    border-radius:5px ;
+    margin-top: 3px;
+    margin-right: 8px;
+  }
+  .insta1{
+    background-color: yellow;
+    height: 31px;
+    border-radius:5px ;
+    margin-top: 20px;
+    margin-right: 8px;
+
+  }
+  .twit{
+    background-color:blueviolet;
+    height: 30px;
+    border-radius:5px ;
+    padding: 1px;
+    margin-top: 3px;
+    margin-right: 8px;
+
+  }

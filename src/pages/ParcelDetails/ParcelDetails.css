@@ -1,0 +1,51 @@
+.pictures {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 72vh; */
+  /* margin-bottom: 5px; */
+  /* padding: 25vh 2.5vh; */
+  flex-wrap: wrap;
+  padding: 2.5vw;
+  gap: 7.5vw;
+}
+
+.inf-pic {
+  width: 100%;
+  height: 100%;
+}
+
+.inf-pic-container {
+  width: 175px;
+  height: 175px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.inf-pic-container > p {
+  text-align: center;
+}
+
+.parcel-detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.map-dContainer {
+  width: 80vw;
+  height: 50vh;
+}
+.rowtitle {
+  font-weight: bolder !important;
+}
+
+.details-container th {
+  width: 100vw;
+  height: 5vh;
+  background-color: rgb(198, 198, 198);
+}

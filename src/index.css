@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  font-family: "arial" !important;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: "Cuprum" !important;
+  font-style: normal;
+}
+h3 {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  /* border-radius: 10px; */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black;
+  /* border-radius: 10px; */
+}

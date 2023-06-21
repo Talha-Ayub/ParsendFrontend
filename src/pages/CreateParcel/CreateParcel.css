@@ -1,0 +1,93 @@
+.out hr {
+  margin: none !important;
+  padding: none !important;
+}
+.sendParcel-container {
+  background-color: #e1e1e1;
+  /* height: 100vh; */
+  padding: 10vh 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.sendParcel {
+  align-items: center;
+  text-align: center;
+  /* margin: 3% 40% 0% 40%; */
+  font-style: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  /* border: 5px solid; */
+  padding: 0 7.5vw;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sendParcel-in {
+  background-color: aqua;
+  padding: 2.5% 25px;
+  width: 251px;
+  height: 91.5%;
+
+  background: #e9eaec;
+  /* shadow */
+
+  box-shadow: 0px 25px 50px 1px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.5%;
+}
+.sendParcel-in > input {
+  /* border: 2px solid !important; */
+}
+.map-container {
+  height: 100%;
+  /* padding: 0 25vw; */
+  width: 50vw;
+  /* border: 1px solid; */
+}
+.sendParcel-container > h2 {
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 50px;
+  background: #c6c6c6;
+  /* shadow */
+  box-shadow: 0px 25px 50px 1px rgba(0, 0, 0, 0.25);
+  width: 50vw;
+}
+
+.sendParcel-in button {
+  /* margin-top: 20px;
+    margin-left: 40px;
+    margin-bottom: 50px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 86px;
+  background: #bba28d;
+  border-radius: 10px;
+  width: 53px;
+  font-weight: 400;
+  font-size: 20px;
+  /* text-Black */
+  color: rgba(0, 0, 0, 0.9);
+  border: none;
+}
+
+.sendParcel-in input:not([type="file"]) {
+  background-color: "#C6C6C6";
+  box-shadow: 0px 0px 5px 1.5px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding: 5px 5px;
+}
+
+.sendParcel-in input[type="file"] {
+  width: 15vw;
+  padding-left: 3vw;
+}

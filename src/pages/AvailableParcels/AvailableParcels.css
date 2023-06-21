@@ -1,0 +1,21 @@
+.t1{
+    border-top: 1px solid;
+    border-left: 1px solid;
+    border-right:1px solid;
+    font-size: 20px;
+    margin: 15px;
+}
+.t1 th{
+    padding-left: 30px ;
+    background-color: aqua;
+    margin-left: 15px;
+    width: 300px;
+    height: 40px;
+}
+.t1 td{
+    align-items: center;
+    width: 300px;
+    height: 40px;
+    padding-left:120px ;
+    padding-bottom: 10px;
+}
