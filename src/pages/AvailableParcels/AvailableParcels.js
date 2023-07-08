@@ -17,17 +17,23 @@ export default function AvailableParcels() {
 
     const fetchData = async () => {
       try {
-        // const userId = localStorage.getItem("userId");
+        const userId = localStorage.getItem("userId");
         const token = localStorage.getItem("token");
 
         // console.log(userId);
 
         // Make API call here
-        const response = await axios.get(`http://localhost:3500/parcels`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
+        const response = await axios.post(
+          `http://localhost:3500/parcels`,
+          {
+            id: userId,
           },
-        });
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         console.log(response.data);
         setParcels(response.data);
         // Process the response or update component state
@@ -45,8 +51,6 @@ export default function AvailableParcels() {
     navigate(`/parcels/${id}`);
   };
 
-  console.log(isRider);
-
   return (
     <>
       <Header />
@@ -58,27 +62,30 @@ export default function AvailableParcels() {
           <h2>Available Parcels</h2>
           <div className="tb">
             <table className="t1">
-              <tr>
-                <th>Sender</th>
-                <th>Value</th>
-                <th>Commission</th>
-                <th>Detaild</th>
-              </tr>
-              {parcels.map((parcel) => (
-                <tr key={parcel._id}>
-                  <td>{parcel.user}</td>
-                  <td>{parcel.value}</td>
-                  <td>{parcel.commission}</td>
-                  <td>
-                    <button
-                      className="vieww"
-                      onClick={() => viewDetails(parcel._id)}
-                    >
-                      View Details
-                    </button>
-                  </td>
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Value</th>
+                  <th>Commission</th>
+                  <th>Detaild</th>
                 </tr>
-              ))}
+              </thead>
+              {parcels &&
+                parcels.map((parcel) => (
+                  <tr key={parcel._id}>
+                    <td>{parcel.title}</td>
+                    <td>{parcel.value}</td>
+                    <td>{parcel.commission}</td>
+                    <td>
+                      <button
+                        className="vieww"
+                        onClick={() => viewDetails(parcel._id)}
+                      >
+                        View Details
+                      </button>
+                    </td>
+                  </tr>
+                ))}
             </table>
           </div>
         </div>

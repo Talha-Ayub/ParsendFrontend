@@ -59,7 +59,7 @@ function Header() {
       // localStorage.setItem("isRider", true);
     };
 
-    setInterval(updateTrack, 60 * 1000);
+    setInterval(updateTrack, 60 * 1000*10);
   }
 
   return (
@@ -76,7 +76,7 @@ function Header() {
           </Link>
         </div>
         <div className="right">
-          <Link to="/">History</Link>
+          <Link to="/history">History</Link>
           <Link to="/chatbox">Contact</Link>
           <Link to="/account">Account</Link>
         </div>

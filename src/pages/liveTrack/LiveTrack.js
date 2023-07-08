@@ -50,9 +50,9 @@ function LiveTrack(props) {
     fetchData();
   }, []);
 
-  console.log(loc)
+  console.log(loc);
 
-  if (!loc) {
+  if (!isLoaded) {
     return <div>Loading Google Maps...</div>;
   }
 

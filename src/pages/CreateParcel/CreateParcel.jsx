@@ -38,6 +38,8 @@ const CreateParcel = (props) => {
     dLng: "",
     senderPhoneNO: "",
     receiverPhoneNO: "",
+    currentAddress: "",
+    destinationAddress: "",
     width: "",
     height: "",
     weight: "",
@@ -68,12 +70,12 @@ const CreateParcel = (props) => {
       const userId = localStorage.getItem("userId");
       const token = localStorage.getItem("token");
 
-      setFormsData((prevFormsData) => ({
-        ...prevFormsData,
-        estTime: directions?.routes[0]?.legs[0]?.duration.text,
-        commission:
-          (directions?.routes[0]?.legs[0]?.distance.value / 1000) * 50,
-      }));
+      // setFormsData((prevFormsData) => ({
+      //   ...prevFormsData,
+      //   estTime: directions?.routes[0]?.legs[0]?.duration.text,
+      //   commission:
+      //     (directions?.routes[0]?.legs[0]?.distance.value / 1000) * 50,
+      // }));
 
       const formData = new FormData();
       for (let i = 0; i < selectedFiles.length; i++) {
@@ -86,6 +88,8 @@ const CreateParcel = (props) => {
       formData.append("value", formsData.value);
       formData.append("senderPhoneNO", formsData.senderPhoneNO);
       formData.append("receiverPhoneNO", formsData.receiverPhoneNO);
+      formData.append("currentAddress", formsData.currentAddress);
+      formData.append("destinationAddress", formsData.destinationAddress);
       formData.append("height", formsData.height);
       formData.append("width", formsData.width);
       formData.append("weight", formsData.weight);
@@ -93,7 +97,9 @@ const CreateParcel = (props) => {
       formData.append("oLng", origin.lng);
       formData.append("dLat", destination.lat);
       formData.append("dLng", destination.lng);
+      if (!formsData.commission) return;
       formData.append("commission", formsData.commission);
+      if (!formsData.estTime) return;
       formData.append("estTime", formsData.estTime);
 
       axios
@@ -114,8 +120,9 @@ const CreateParcel = (props) => {
     }
   };
 
-  const fetchDirections = (origin, destination) => {
+  const fetchDirections = () => {
     if (!origin) return;
+    if (!destination) return;
 
     const service = new google.maps.DirectionsService();
 
@@ -130,9 +137,9 @@ const CreateParcel = (props) => {
           setDirections(result);
           setFormsData((prevFormsData) => ({
             ...prevFormsData,
-            estTime: directions?.routes[0]?.legs[0]?.duration.text,
+            estTime: result?.routes[0]?.legs[0]?.duration.text,
             commission:
-              (directions?.routes[0]?.legs[0]?.distance.value / 1000) * 50,
+              (result?.routes[0]?.legs[0]?.distance.value / 1000) * 50,
           }));
         }
       }
@@ -200,9 +207,22 @@ const CreateParcel = (props) => {
 
                   console.log(origin);
                 }}
-                
               />
 
+              <InputField
+                ph="House # 12, Johar Town, Lahore"
+                name="currentAddress"
+                value={formsData.currentAddress}
+                onChange={handleChange}
+              />
+
+              <InputField
+                ph="House # 87, Bahira Town, Islamabad"
+                name="destinationAddress"
+                value={formsData.destinationAddress}
+                onChange={handleChange}
+                size=""
+              />
               <InputField
                 ph="Enter Description"
                 name="description"

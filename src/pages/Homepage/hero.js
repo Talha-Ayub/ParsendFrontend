@@ -1,6 +1,7 @@
 import "./hero.css";
 import ipath from "../../assets/images/home-bg.jpg";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const [count, setCount] = useState({ name: "yusuf", number: 0 });
@@ -19,9 +20,9 @@ const Hero = () => {
         <h1>
           PAR<spam>SEND</spam>
         </h1>
-        {/* <h3 className="desc">The courier service you deserve</h3> */}
-        <h3 className="desc"> {count.name} Count = {count.number}</h3>
-        <button onClick={updateCount}>Add One</button>
+        <Link to="/parcels/create">
+        <button >Post</button>
+        </Link>
       </div>
     </div>
   );

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Header from "../../components/header";
+import Footer from "../../components/footer";
+import "./Chat.css";
 
 const Chat = () => {
   const { id } = useParams();
@@ -77,24 +80,28 @@ const Chat = () => {
   console.log(messages);
 
   return (
-    <div>
-      <div>
-        {messages.map((message, index) => (
-          <div key={index}>
-            <strong>{message.senderName}: </strong>
-            {message.text}
-          </div>
-        ))}
+    <>
+      <Header />
+      <div className="fcc chat__container">
+        <div>
+          {messages.map((message, index) => (
+            <div key={index}>
+              <strong>{message.senderName}: </strong>
+              {message.text}
+            </div>
+          ))}
+        </div>
+        <form onSubmit={handleSendMessage}>
+          <input
+            type="text"
+            value={newMessage}
+            onChange={(e) => setNewMessage(e.target.value)}
+          />
+          <button type="submit">Send</button>
+        </form>
       </div>
-      <form onSubmit={handleSendMessage}>
-        <input
-          type="text"
-          value={newMessage}
-          onChange={(e) => setNewMessage(e.target.value)}
-        />
-        <button type="submit">Send</button>
-      </form>
-    </div>
+      <Footer />
+    </>
   );
 };
 

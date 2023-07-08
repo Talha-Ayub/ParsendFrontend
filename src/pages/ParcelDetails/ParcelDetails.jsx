@@ -14,13 +14,13 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { getCurrentLocation } from "../../utils/extras";
+// import { getCurrentLocation } from "../../utils/extras";
 
 const ParcelDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [parcel, setParcel] = useState({});
-  const [pictures, setPictures] = useState([]);
+  const [pictures, setPictures] = useState(null);
   // const libraries = ["places"];
   const [directions, setDirections] = useState(null);
   const mapRef = useRef();
@@ -81,9 +81,7 @@ const ParcelDetails = () => {
     }
   }, [origin, destination]);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
+  const handleSubmit = async () => {
     const user = localStorage.getItem("userId");
     // const { lng, lat } = await getCurrentLocation();
 
@@ -92,39 +90,40 @@ const ParcelDetails = () => {
         // Simulating an asynchronous API request with a timeout
         navigator.geolocation.getCurrentPosition((position) => {
           const { coords } = position;
-
-          resolve(coords);
-          // console.log(coords);
-          setCurLoc({
+          // setCurLoc({
+          //   lat: coords.latitude,
+          //   lng: coords.longitude,
+          // });
+          resolve({
             lat: coords.latitude,
             lng: coords.longitude,
           });
+          // console.log(coords);
         });
       });
     };
-
-    console.log(curLoc);
-
+    let locs = {};
     await getCurrentLocation().then((data) => {
-      console.log(data);
+      locs = data;
+      console.log("Data: " + data);
     });
 
+    // console.log("Loc: " + curLoc);
     // const formData = ;
 
     await axios
       .post(`http://localhost:3500/users/${user}/order`, {
         parcel: parcel._id,
-        lng: curLoc.lng,
-        lat: curLoc.lat,
+        lng: locs.lng,
+        lat: locs.lat,
       })
       .then((response) => {
+        localStorage.setItem("isRider", true);
         navigate("/");
       })
       .catch((error) => {
-        console.error(error);
+        console.log(error);
       });
-
-    localStorage.setItem("isRider", true);
   };
 
   if (!isLoaded) {
@@ -220,12 +219,12 @@ const ParcelDetails = () => {
                     value
                   </TableCell>
                   <TableCell component="th" scope="row">
-                    {parcel.value}
+                    {parcel?.value}
                   </TableCell>
                 </TableRow>
                 {/* commission */}
                 <TableRow
-                  key={parcel.title}
+                  key={parcel?.title}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell className="rowtitle" component="th" scope="row">

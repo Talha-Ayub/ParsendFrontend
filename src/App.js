@@ -22,6 +22,7 @@ import AvailableParcels from "./pages/AvailableParcels/AvailableParcels";
 import ParcelDetails from "./pages/ParcelDetails/ParcelDetails";
 import Chat from "./pages/Chat/Chat";
 import ChatBox from "./pages/ChatBox/ChatBox";
+import History from "./pages/History/History";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route exact path="/register" Component={Create_account} />
         <Route exact path="/chats/:id" Component={Chat} />
         <Route exact path="/chatbox" Component={ChatBox} />
+        <Route exact path="/history" Component={History} />
         {/* <Route exact path="/about" Component={Send_parcel} /> */}
       </Routes>
     </BrowserRouter>

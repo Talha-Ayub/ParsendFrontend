@@ -23,15 +23,15 @@ function Footer() {
         {/* <hr/> */}
         <h2>Links</h2>
         <br />
-        <Link className="aa" to="/send_parcel">
+        <Link className="aa" to="/parcels/create">
           Send
         </Link>
         <br />
-        <Link className="aa" to="/availableparcel">
+        <Link className="aa" to="/parcels">
           Browse
         </Link>
         <br />
-        <Link className="aa" to="/">
+        <Link className="aa" to="/track">
           Track
         </Link>
         <br />

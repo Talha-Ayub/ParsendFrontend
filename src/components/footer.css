@@ -1,6 +1,9 @@
 .main{
   margin-top: 5px;
     display: flex;
+    flex-direction: row;
+    /* margin-top: auto!important; */
+
     
 }
 /* .cdhr{

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const RiderOrder = (props) => {
+  const navigate = useNavigate();
   const order = props.order;
   const [task, setTask] = useState();
 
@@ -38,6 +40,7 @@ const RiderOrder = (props) => {
         }
       );
       localStorage.setItem("isRider", false);
+      navigate("/");
     }
   }
 

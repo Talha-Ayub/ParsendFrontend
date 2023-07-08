@@ -11,7 +11,7 @@ function Create_account() {
     password: "",
     phone_no: "",
     cnic: "",
-    country: "",
+    city: "",
   });
   const navigate = useNavigate();
 
@@ -88,10 +88,10 @@ function Create_account() {
           <br />
           <br />
           <InputField
-            ph="Country"
+            ph="City"
             size=""
-            name="country"
-            value={formData.country}
+            name="city"
+            value={formData.city}
             onChange={handleChange}
           />
           <br />
