@@ -162,12 +162,14 @@ const CreateParcel = (props) => {
           <div className="sendParcel">
             <form className="sendParcel-in">
               <Places
+              ph="Enter pickup"
                 setLocation={(position) => {
                   setOrigin(position);
                   mapRef.current?.panTo(position);
                 }}
               />
               <Places
+              ph="Enter destination"
                 setLocation={(position) => {
                   setDestination(position);
                   mapRef.current?.panTo(position);

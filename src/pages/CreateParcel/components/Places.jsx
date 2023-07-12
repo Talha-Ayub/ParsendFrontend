@@ -11,7 +11,7 @@ import {
 } from "@reach/combobox";
 import "@reach/combobox/styles.css";
 
-export default function Places({ setLocation }) {
+export default function Places({ setLocation, ph }) {
   const {
     ready,
     value,
@@ -36,7 +36,7 @@ export default function Places({ setLocation }) {
         onChange={(e) => setValue(e.target.value)}
         disabled={!ready}
         className="combobox-input"
-        placeholder="Enter origin"
+        placeholder={ph}
       />
       <ComboboxPopover>
         <ComboboxList>
