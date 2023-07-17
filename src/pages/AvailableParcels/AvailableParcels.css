@@ -19,3 +19,10 @@
     padding-left:120px ;
     padding-bottom: 10px;
 }
+
+.fc{
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

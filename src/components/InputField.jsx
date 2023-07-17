@@ -24,7 +24,7 @@ const InputField = (props) => {
 
   //   style["width"] = props.size;
 
-  return <input style={style} type="text" placeholder={props.ph} name={props.name} value={props.value} onChange={props.onChange} onClick={props.onClick} />;
+  return <input style={style} type={props.type || "text"} placeholder={props.ph} name={props.name} value={props.value} onChange={props.onChange} onClick={props.onClick} />;
 };
 
 export default InputField;

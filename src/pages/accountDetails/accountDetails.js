@@ -3,9 +3,11 @@ import Footer from "../../components/footer";
 import "./accountDetails.css";
 import InputField from "../../components/InputField";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function AccountDetails() {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({
     name: "",
     city: "",
@@ -46,6 +48,14 @@ function AccountDetails() {
     fetchData();
   }, []);
 
+  const logout = () => {
+    localStorage.removeItem("userId");
+    localStorage.removeItem("token");
+    localStorage.removeItem("isRider");
+
+    navigate("/");
+  };
+
   const handleClick = async () => {
     try {
       const formData = new FormData();
@@ -62,7 +72,7 @@ function AccountDetails() {
       await axios
         .patch(`http://localhost:3500/users/${userId}`, userData)
         .then((response) => {
-          console.log(response.data);
+          navigate("/home");
         })
         .catch((error) => {
           // setErrors(error.response.data.errors);
@@ -81,7 +91,7 @@ function AccountDetails() {
         <br />
       </div>
       <div className="profileChange">
-        <button>Change profile</button>
+        <button onClick={logout}>Logout</button>
       </div>
       <br />
       <br />

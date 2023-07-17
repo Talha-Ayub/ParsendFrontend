@@ -1,3 +1,15 @@
 .chat__container {
   padding: 10rem 2rem;
+  max-height: 500px;
+  overflow: auto;
+}
+
+.chat__container > form > input,
+.chat__container > form > button {
+  margin-right: 10px;
+  outline: none;
+  height: 30px;
+  background-color: #bba28d;
+  border: none;
+  padding: 5px 10px;
 }

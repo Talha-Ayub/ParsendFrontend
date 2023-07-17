@@ -3,7 +3,21 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100vw;
+  /* width: 100vw; */
   /* height: 90vh; */
   padding: 10vh 0;
+}
+
+.chatbox__h2 {
+  padding: 25px 50px;
+  border: 1px solid;
+  background-color: #bba28d;
+}
+
+.chat-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 100px;
+  gap: 500px;
 }

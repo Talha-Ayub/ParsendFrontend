@@ -8,8 +8,22 @@ import { useNavigate } from "react-router-dom";
 
 export default function AvailableParcels() {
   const navigate = useNavigate();
+  
   const [parcels, setParcels] = useState([]);
   const [isRider, setIsRider] = useState(null);
+  const [formData, setFormData] = useState({
+    dest: "",
+    org: "",
+  });
+
+  const [search, setSearch] = useState(false);
+
+  const handleChange = (event) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [event.target.name]: event.target.value,
+    }));
+  };
 
   useEffect(() => {
     const rider = localStorage.getItem("isRider") === "true"; // Convert string to boolean
@@ -20,13 +34,13 @@ export default function AvailableParcels() {
         const userId = localStorage.getItem("userId");
         const token = localStorage.getItem("token");
 
-        // console.log(userId);
-
         // Make API call here
         const response = await axios.post(
           `http://localhost:3500/parcels`,
           {
             id: userId,
+            dest: formData.dest,
+            org: formData.org,
           },
           {
             headers: {
@@ -43,12 +57,14 @@ export default function AvailableParcels() {
     };
 
     fetchData(); // Call the function to make the API call
-  }, []); // Empty dependency array to trigger the effect only once on mount
-
-  // console.log(parcels);
+  }, [search]); // Empty dependency array to trigger the effect only once on mount
 
   const viewDetails = (id) => {
     navigate(`/parcels/${id}`);
+  };
+
+  const handleClick = () => {
+    setSearch(search !== true);
   };
 
   return (
@@ -58,8 +74,26 @@ export default function AvailableParcels() {
         <div>Complete the order to view a parcel request</div>
       ) : (
         <div>
-          <hr />
-          <h2>Available Parcels</h2>
+          <div className="fc">
+            <h2>Available Parcels</h2>
+            <div>
+              <input type="button" value="Filter" onClick={handleClick} />
+              <input
+                type="text"
+                placeholder="Destination"
+                name="dest"
+                value={formData.dest}
+                onChange={handleChange}
+              />
+              <input
+                type="text"
+                placeholder="Origin"
+                name="org"
+                value={formData.org}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
           <div className="tb">
             <table className="t1">
               <thead>
@@ -70,7 +104,7 @@ export default function AvailableParcels() {
                   <th>Detaild</th>
                 </tr>
               </thead>
-              {parcels &&
+              {parcels ? (
                 parcels.map((parcel) => (
                   <tr key={parcel._id}>
                     <td>{parcel.title}</td>
@@ -85,7 +119,10 @@ export default function AvailableParcels() {
                       </button>
                     </td>
                   </tr>
-                ))}
+                ))
+              ) : (
+                <h2>No parcels found</h2>
+              )}
             </table>
           </div>
         </div>

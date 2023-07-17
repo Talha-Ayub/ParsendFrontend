@@ -40,7 +40,7 @@ const RiderOrder = (props) => {
         }
       );
       localStorage.setItem("isRider", false);
-      navigate("/");
+      navigate("/home");
     }
   }
 

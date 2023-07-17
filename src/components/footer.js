@@ -35,15 +35,7 @@ function Footer() {
           Track
         </Link>
         <br />
-        <Link className="aa" to="/">
-          About Us
-        </Link>
-        <br />
-        <Link className="aa" to="/">
-          Contact Us
-        </Link>
-        <br />
-        <Link className="aa" to="/">
+        <Link className="aa" to="/suggestion">
           Complain & Suggestions
         </Link>
         <br />

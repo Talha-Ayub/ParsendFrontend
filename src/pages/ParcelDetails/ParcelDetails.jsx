@@ -48,11 +48,11 @@ const ParcelDetails = () => {
             },
           }
         );
-        setOrigin(response.data.pickupLocation);
-        setDestination(response.data.destination);
-
-        setParcel(response.data);
-        setPictures(response.data.pictures.pictureDatas);
+        setOrigin(response.data.parcel.pickupLocation);
+        setDestination(response.data.parcel.destination);
+        console.log(response.data);
+        setParcel(response.data.parcel);
+        setPictures(response.data.pictures);
       } catch (error) {
         console.error(error);
       }
@@ -105,7 +105,6 @@ const ParcelDetails = () => {
     let locs = {};
     await getCurrentLocation().then((data) => {
       locs = data;
-      console.log("Data: " + data);
     });
 
     // console.log("Loc: " + curLoc);
@@ -119,7 +118,7 @@ const ParcelDetails = () => {
       })
       .then((response) => {
         localStorage.setItem("isRider", true);
-        navigate("/");
+        navigate("/home");
       })
       .catch((error) => {
         console.log(error);
@@ -127,7 +126,7 @@ const ParcelDetails = () => {
   };
 
   if (!isLoaded) {
-    return <div>Loading Google Maps...</div>;
+    return <div className="fc">Loading Google Maps...</div>;
   }
 
   return (
@@ -141,7 +140,7 @@ const ParcelDetails = () => {
               <div className="inf-pic-container" key={key}>
                 <img
                   className="inf-pic"
-                  src={`data:image/jpeg;base64,${picture}`}
+                  src={`http://localhost:3500/${picture.path}`}
                   alt={picture._id}
                 />
               </div>

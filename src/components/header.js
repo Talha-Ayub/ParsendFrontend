@@ -71,7 +71,7 @@ function Header() {
           <Link to="/order">Order</Link>
         </div>
         <div className="logo">
-          <Link to="/" className="Dummy b1">
+          <Link to="/home" className="Dummy b1">
             <img src={logo} width={"50px"} />{" "}
           </Link>
         </div>

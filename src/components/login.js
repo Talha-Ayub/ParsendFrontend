@@ -3,6 +3,8 @@ import "./login.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import Header from "./header";
 
 function Login(props) {
   const [formData, setFormData] = useState({
@@ -29,7 +31,7 @@ function Login(props) {
         localStorage.setItem("token", response.data.accessToken);
         localStorage.setItem("userId", response.data.userId);
         localStorage.setItem("isRider", response.data.isRider);
-        navigate("/");
+        navigate("/home");
       })
       .catch((error) => {
         console.error(error);
@@ -38,6 +40,7 @@ function Login(props) {
 
   return (
     <div className="Login-container">
+      {/* <Header /> */}
       <div className="login">
         <h2>Login</h2>
         <form className="log-in">
@@ -51,6 +54,7 @@ function Login(props) {
           <br />
           <br />
           <InputField
+            type="password"
             ph="Password"
             size=""
             name="password"
@@ -63,6 +67,11 @@ function Login(props) {
           <button onClick={handleSubmit}>Login</button>
         </form>
       </div>
+      <br />
+
+      <Link className="a1234" to="/register">
+        Not a user? Click to create account
+      </Link>
     </div>
   );
 }

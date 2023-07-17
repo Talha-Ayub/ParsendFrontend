@@ -3,6 +3,7 @@ import "./create_account.css";
 import InputField from "./InputField";
 import axios from "axios";
 import { useState } from "react";
+import Header from "./header";
 
 function Create_account() {
   const [formData, setFormData] = useState({
@@ -31,7 +32,7 @@ function Create_account() {
       .post("http://localhost:3500/register", formData)
       .then((response) => {
         console.log(response.data);
-        navigate("/login");
+        navigate("/");
       })
       .catch((error) => {
         console.error(error);
@@ -40,6 +41,7 @@ function Create_account() {
 
   return (
     <div className="create-container">
+      <Header />
       <div className="create">
         <h2>Create Account</h2>
         <form className="create-in">

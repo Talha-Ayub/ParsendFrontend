@@ -25,24 +25,35 @@ import ChatBox from "./pages/ChatBox/ChatBox";
 import History from "./pages/History/History";
 
 function App() {
+  const userId = localStorage.getItem("userId");
+
   return (
     <BrowserRouter>
-      <Routes>
-        <Route exact path="/" Component={Homepage} />
-        <Route exact path="/accepted" Component={Accepted} />
-        <Route exact path="/login" Component={Login} />
-        <Route exact path="/parcels/create" Component={CreateParcel} />
-        <Route exact path="/parcels" Component={AvailableParcels} />
-        <Route exact path="/parcels/:id" Component={ParcelDetails} />
-        <Route exact path="/track" Component={LiveTrack} />
-        <Route exact path="/order" Component={Order} />
-        <Route exact path="/account" Component={AccountDetails} />
-        <Route exact path="/register" Component={Create_account} />
-        <Route exact path="/chats/:id" Component={Chat} />
-        <Route exact path="/chatbox" Component={ChatBox} />
-        <Route exact path="/history" Component={History} />
+        {userId ? (
+          <Routes>
+            <Route exact path="/home" Component={Homepage} />
+            <Route exact path="/accepted" Component={Accepted} />
+            <Route exact path="/parcels/create" Component={CreateParcel} />
+            <Route exact path="/parcels" Component={AvailableParcels} />
+            <Route exact path="/parcels/:id" Component={ParcelDetails} />
+            <Route exact path="/track" Component={LiveTrack} />
+            <Route exact path="/order" Component={Order} />
+            {/* <Route exact path="/chats/:id" Component={Chat} /> */}
+            <Route exact path="/chatbox" Component={ChatBox} />
+            <Route exact path="/history" Component={History} />
+            <Route exact path="/suggestion" Component={Suggestion} />
+            <Route exact path="/account" Component={AccountDetails} />
+            <Route exact path="/" Component={Login} />
+          </Routes>
+        ) : (
+          <Routes>
+            <Route exact path="/home" Component={Homepage} />
+
+            <Route exact path="/" Component={Login} />
+            <Route exact path="/register" Component={Create_account} />
+          </Routes>
+        )}
         {/* <Route exact path="/about" Component={Send_parcel} /> */}
-      </Routes>
     </BrowserRouter>
   );
 }
